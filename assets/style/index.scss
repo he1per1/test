@@ -1,0 +1,267 @@
+@import "../fonts/poppins";
+@import "./variable";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  list-style: none;
+  font-family: $font;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
+
+.auth {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $auth;
+  padding: 20px 0;
+
+  &__footer {
+    padding: 0 10px;
+
+    p {
+      text-align: center;
+      font-weight: normal;
+      font-size: 13px;
+      font-style: normal;
+      color: $trout;
+
+      &:first-child {
+        margin-top: 36px;
+        margin-bottom: 16px;
+      }
+
+      a {
+        color: $primary;
+      }
+    }
+  }
+
+  .card__login {
+    max-width: 451px;
+    width: 96%;
+    margin: 0 auto;
+    background-color: $white;
+    border-radius: 4px 4px 4px 4px;
+
+    .login {
+      &__header {
+        background-color: $primary_transparent;
+        border-radius: 4px 4px 0px 0px;
+        position: relative;
+        margin-bottom: 80px;
+
+        .header {
+          &__title {
+            margin: 24px 0 0 24px;
+
+            h4 {
+              margin-bottom: 6px;
+              line-height: 19px;
+              color: $primary;
+            }
+            p {
+              font-style: normal;
+              font-weight: normal;
+              font-size: 13px;
+              color: $primary;
+            }
+          }
+
+          &__image {
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 173px;
+              height: auto;
+            }
+          }
+
+          &__avatar {
+            position: absolute;
+            margin-top: -24px;
+            margin-left: 24px;
+            display: flex;
+
+            img {
+              width: 72px;
+              height: 72px;
+              border-radius: 50%;
+              border: 3px solid $whisper;
+            }
+          }
+
+          &__row {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+
+      &__form,
+      &__footer {
+        max-width: 395px;
+        width: 96%;
+        margin: 0 auto;
+      }
+
+      &__form {
+        .form {
+          &__group {
+            margin-bottom: 16px;
+
+            &:not(.form__group-checkbox) {
+              display: flex;
+              flex-direction: column;
+              position: relative;
+            }
+
+            label,
+            input {
+              font-size: 13px;
+            }
+
+            label {
+              margin-bottom: 8px;
+              color: $trout;
+              line-height: 19px;
+            }
+
+            input:not([type="checkbox"]) {
+              width: 100%;
+              height: 36px;
+              padding-left: 12px;
+              border: 1px solid $ghost;
+              border-radius: 4px;
+              transition: all 0.3s;
+
+              &:focus {
+                border-color: $primary;
+                transition: all 0.3s;
+              }
+
+              &,
+              &::placeholder {
+                font-weight: normal;
+              }
+
+              &::placeholder {
+                color: $trout;
+              }
+            }
+
+            &-icon .icon-wrap {
+              display: flex;
+              align-items: center;
+              position: relative;
+
+              span {
+                pointer-events: none;
+                position: absolute;
+                right: 1px;
+                width: 43px;
+                background-color: $white;
+                text-align: center;
+
+                img {
+                  pointer-events: all;
+                  cursor: pointer;
+                }
+              }
+            }
+
+            &-checkbox {
+              display: flex;
+              align-items: center;
+
+              label {
+                padding: 0 0 0 27px;
+                position: relative;
+                cursor: pointer;
+
+                &:hover::before {
+                  border-color: $primary;
+                  transition: all 0.3s;
+                }
+
+                &:before {
+                  content: "";
+                  width: 16px;
+                  height: 16px;
+                  position: absolute;
+                  left: 0;
+                  border: 1px solid $hit_gray;
+                  border-radius: 4px;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  transition: all 0.3s;
+                }
+              }
+
+              input[type="checkbox"] {
+                display: none;
+
+                &:checked + label::before {
+                  background-image: url("../img/checked.png");
+                }
+              }
+            }
+          }
+
+          &__button {
+            width: 100%;
+            height: 36px;
+            color: $white;
+            border-radius: 4px;
+            font-weight: normal;
+            background-color: $primary;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__footer {
+        padding: 24px 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          margin-left: 8px;
+          font-weight: normal;
+          font-size: 13px;
+          color: $storm_gray;
+        }
+      }
+    }
+  }
+}
+
+.page,
+.layout {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.2s all;
+  }
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
